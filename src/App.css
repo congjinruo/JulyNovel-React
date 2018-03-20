@@ -1,0 +1,35 @@
+.App-content {
+  padding: 10px 20px;
+}
+.ant-breadcrumb{
+  padding: 16px 20px  6px;
+}
+
+@media (min-width: 1400px){
+  .App-content {
+    padding: 10px 60px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right:auto; 
+  }
+  .ant-breadcrumb{
+    padding: 16px 60px 6px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right:auto; 
+  }
+}
+
+@media (max-width: 767px){
+  .book-type{
+    display: none;
+  }
+
+  .hot-search{
+    display: none;
+  }
+
+  .App-content {
+    padding: 0px 0px;
+  }
+}

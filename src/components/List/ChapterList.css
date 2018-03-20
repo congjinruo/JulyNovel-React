@@ -1,0 +1,31 @@
+.chapter-list a{
+    color: black;
+    max-width: 350px;
+    margin: 0px auto;
+    padding: 12px;
+    line-height: 30px;
+    display: block;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.chapter-list a span{
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+    width: calc(100% - 40px);
+    display: inline-block;
+}
+
+.chapter-list .ant-list-item{
+    display: inherit;
+}
+
+.chapter-list a:hover{
+    color: #3db389;
+}
+
+.chapter-list .anticon-lock{
+    float: right;
+    line-height: 30px;
+}

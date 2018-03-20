@@ -1,0 +1,35 @@
+.ant-card-meta-title{
+    font-size: 16px
+  }
+  .book-type .ant-card-meta-description{
+    font-size: 14px;
+    color: inherit;
+  }
+
+  .book-type{
+    margin-bottom: 15px;
+    padding-left: 0px !important;
+    padding-right: 12px;
+  }
+  .book-type .ant-card-meta-title{
+    margin-bottom: 4px;
+  }
+  
+  .book-type .ant-card-grid{
+    box-shadow: inherit;
+  }
+  .book-type a{
+    color: rgba(0, 0, 0, 0.85)
+  }
+  .book-type .ant-card-body{
+    padding: 0px;
+  }
+  .book-type .ant-card-grid:hover{
+    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    color: #1da57a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .book-type .ant-list-item-meta-avatar{
+    margin: 0px 5px;
+  }

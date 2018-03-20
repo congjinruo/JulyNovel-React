@@ -1,0 +1,18 @@
+.ant-card-wider-padding .ant-card-head{
+  padding:  0 12px;
+}
+  
+  @media (max-width: 767px){
+    .card-book-type{
+      display: none;
+    }
+
+    .hot-search{
+      display: none;
+    }
+
+    .home-slide{
+      display: none;
+    }
+  
+  }

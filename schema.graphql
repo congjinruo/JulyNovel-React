@@ -1,0 +1,158 @@
+scalar DateTime
+# An object with an ID
+interface Node {
+  # The id of the object.
+  id: ID!
+}
+
+# Information about pagination in a connection.
+type PageInfo {
+  # When paginating forwards, are there more items?
+  hasNextPage: Boolean!
+
+  # When paginating backwards, are there more items?
+  hasPreviousPage: Boolean!
+
+  # When paginating backwards, the cursor to continue.
+  startCursor: String
+
+  # When paginating forwards, the cursor to continue.
+  endCursor: String
+}
+
+type Book implements Node{
+  #Book node
+
+  bookId: ID!
+  bookName: String
+  summary: String
+  bookTypeId: Int
+  author: String
+  cover: String
+  banner: String
+  clickTimes: Int
+  wordNumbers: Int
+  status: Int
+  tags: String
+  siteId: Int
+  xbookId: String
+  fileUrl: String
+  lastupdate: DateTime
+  createtime: DateTime
+  id: ID!
+  bookType: BookType
+  chapterList(totalCount: Int): [Chapter]
+}
+
+type Chapter implements Node{
+  #Chapter node
+
+  chapterId: ID!
+  chapterName: String
+  bookId: Int
+  wordNumbers: Int
+  volumeId: Int
+  xchapterId: String
+  free: Int
+  sort: Int
+  updatetime: DateTime
+  createtime: DateTime
+  id: ID!
+  content: Content
+  book: Book
+  prevChapterId: ID
+  nextChapterId: ID
+}
+
+type Content implements Node{
+  #Content node
+
+  contentId: ID!
+  chapterId: Int
+  text: String
+  bookId: Int
+  wordNumbers: Int
+  createtime: DateTime
+  id: ID!
+}
+
+
+type BookType implements Node {
+  #BookType node.
+
+  typeId: ID!
+  typeName: String
+  summary: String
+  parentTypeId: Int
+  state: Int
+  createtime: DateTime
+  id: ID!
+  children(totalCount: Int): [BookTypeChildren]
+  recommends(bookId: ID): [Book]
+  totalBookCount: Int
+}
+
+type BookTypeChildren implements Node{
+  #BookTypeChildren node.
+
+  typeId: ID!
+  typeName: String
+  summary: String
+  parentTypeId: Int
+  state: Int
+  createtime: DateTime
+  id: ID!
+  bookCount: Int  
+}
+
+type Rank{
+  #Rank Node
+
+  rankId: ID!
+  bookId: Int
+  rankTypeId: Int
+  sort: Int
+  siteId: Int
+  state: Int
+  createtime: DateTime
+  id: ID!
+  book: Book
+}
+
+type RankType implements Node{
+  #RankType Node
+
+  typeId: ID!
+  typeName: String
+  siteId: Int
+  state: Int
+  createtime: DateTime
+  id: ID!
+  rankList(totalCount: Int): [Rank]
+}
+
+type BookConnection{
+  pageInfo: PageInfo!
+  edges: [BookEdge]!
+}
+
+type BookEdge{
+  node: Book
+  cursor: String!
+}
+
+type Query {
+  #The query root of JulyNovel's GraphQL interface.
+
+  node(id: ID!): Node
+  book(bookId: ID): Book
+  bookList(bookTypeId: ID, search: String, before: String, after: String, first: Int, last: Int): BookConnection
+  bookType(typeId: ID): BookType
+  chapter(chapterId: ID): Chapter
+  content(chapterId: Int): Content
+
+  bookTypeList(parentTypeId: Int): [BookType]
+  rank(rankId: ID): Rank
+  rankType(rankTypeId: ID): RankType
+  homeRankList: [RankType]
+}
