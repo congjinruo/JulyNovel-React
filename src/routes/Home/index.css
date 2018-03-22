@@ -1,7 +1,9 @@
 .ant-card-wider-padding .ant-card-head{
   padding:  0 12px;
 }
-  
+.bottom-cover .ant-card-body{
+  display: none;
+}
   @media (max-width: 767px){
     .card-book-type{
       display: none;

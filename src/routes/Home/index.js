@@ -155,7 +155,7 @@ class HomeComponent extends PureComponent{
               this.props.data[9].rankList.map(item => (
                 <Col key={item.book.bookId} xs={24} sm={24} md={8} lg={8} xl={8} style={{margin: '8px 0px'}}>
                   <a href={`/Info/${item.book.bookId}`}>
-                    <Card hoverable={true} cover={<img style={{width: '100%'}}  alt={item.book.bookName} src={item.book.banner} />}></Card>              
+                    <Card hoverable={true} className="bottom-cover" cover={<img style={{width: '100%'}}  alt={item.book.bookName} src={item.book.banner} />}></Card>              
                   </a>
                 </Col>
               ))

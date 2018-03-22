@@ -69,11 +69,16 @@ query InfoQuery($bookId: ID){
 const  RecentChapters = (props) =>{
     const items = [];
     const count = props.chapters.length;
+    const convertTime = (time) =>{
+        let t = '';  
+        t = time.replace(/T/g,' ').substring(0, time.lastIndexOf(':'));
+        return t;
+    }
     items.push(
         <li key={count - 1}>
             <label>最近更新：</label>
             <a href={`/Read/${props.chapters[count - 1].chapterId}`}>{props.chapters[count - 1].chapterName}</a>&emsp;
-            <em>&emsp;{`${props.chapters[count - 1].updatetime}`}</em>
+            <em>&emsp;{`${convertTime(props.chapters[count - 1].updatetime)}`}</em>
         </li>
     )   
     for(let  i = count - 2; i >= count - 3 && i >=0; i--){
@@ -81,7 +86,7 @@ const  RecentChapters = (props) =>{
             <li key={i}>
                 <label>&emsp;&emsp;&emsp;&emsp;&emsp;</label>
                 <a href={`/Read/${props.chapters[i].chapterId}`}>{props.chapters[i].chapterName}</a>&emsp;
-                <em>&emsp;{`${props.chapters[i].updatetime}`}</em>
+                <em>&emsp;{`${convertTime(props.chapters[i].updatetime)}`}</em>
             </li>
         )
     }
@@ -203,8 +208,8 @@ class InfoComponent extends PureComponent{
                     </Row>
                     <Row  gutter={24}>
                         <Col   xs={24} sm={24} md={24} lg={24} xl={24}>
-                            <Tabs defaultActiveKey="chapter_2" style={{padding: '12px 24px'}}>
-                                <TabPane tab="作品信息" key="chapter_1">
+                            <Tabs defaultActiveKey="chapter_1" style={{padding: '12px 24px'}}>
+                                <TabPane  tab={<span style={{fontSize: '20px'}}>作品信息</span>} key="chapter_1">
                                     <Row gutter={24}>
                                         <Col   xs={24} sm={24} md={18} lg={18} xl={18}>
                                             <p className="info-book-summary" dangerouslySetInnerHTML={{__html: this.props.book.summary.split(" ").join("<br />")}}></p>
@@ -232,7 +237,7 @@ class InfoComponent extends PureComponent{
                                         </Col>
                                     </Row>
                                 </TabPane>
-                                <TabPane tab="作品章节" key="chapter_2">
+                                <TabPane forceRender={true} tab={<div><span style={{fontSize: '20px'}}>目录</span>（{this.props.book.chapterList.length}章）</div>} key="chapter_2">
                                     <ChapterList dataSource={this.props.book.chapterList} loading={this.props.loading}/>
                                 </TabPane>
                             </Tabs>

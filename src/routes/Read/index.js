@@ -61,7 +61,8 @@ class VipHandle extends PureComponent{
     jumpToQidian(xbookId, e){    //事件对象e要放在最后
         window.open(`https://book.qidian.com/info/${xbookId}`);
     }
-    
+
+
     render(){
         if(this.props.free==1){
             return null
@@ -105,7 +106,11 @@ class ReadComponent extends PureComponent{
         super(props)
     }
 
-
+    convertTime = (time) =>{
+        let t = '';  
+        t = time.replace(/T/g,' ').substring(0, time.lastIndexOf(':'));
+        return t;
+    }
     render(){
         return(
             <div>
@@ -124,7 +129,7 @@ class ReadComponent extends PureComponent{
                         <span><Icon type="book"/>&nbsp;{this.props.chapter.book.bookName}</span>
                         <span><Icon type="edit" />&nbsp;{this.props.chapter.book.author}</span>
                         <span><Icon type="line-chart" />&nbsp;{this.props.chapter.wordNumbers}</span>
-                        <span><Icon type="clock-circle-o" />&nbsp;{this.props.chapter.updatetime}</span>
+                        <span><Icon type="clock-circle-o" />&nbsp;{this.convertTime(this.props.chapter.updatetime)}</span>
                     </div>
                     <div className="read-text" dangerouslySetInnerHTML={{__html: this.props.chapter.content.text}}></div>
                     {<VipHandle free={this.props.chapter.free}  xbookId={this.props.chapter.book.xbookId}/>}
