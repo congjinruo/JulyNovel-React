@@ -18,7 +18,6 @@ export default class  PageHeader extends Component{
 
     }
     componentWillMount(){
-        const defaultSelectedKeys = ['1', '2', '3'];
         if(this.props.location === undefined){
             this.setState({defaultSelectedKeys: ['4']});
             return;
@@ -58,7 +57,7 @@ export default class  PageHeader extends Component{
                     placeholder="凡人修仙之仙界篇"
                     enterButton={true}
                     onSearch={value => {
-                        if(value == undefined ||  value == null || value.replace(/(^\s*)|(\s*$)/g, "") == ""){
+                        if(value === undefined ||  value === null || value.replace(/(^\s*)|(\s*$)/g, "") === ""){
                             this.props.history.push(`/Search/凡人修仙之仙界篇`);
                             return;
                         }

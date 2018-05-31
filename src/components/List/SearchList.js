@@ -107,7 +107,7 @@ onLoadMore = () => {
   });
 }
   render(){
-    const { loading, loadingMore, hasNextPage, data } = this.state;
+    const { loadingMore, hasNextPage } = this.state;
     const loadMore = hasNextPage ? (
       <div style={{ textAlign: 'center', margin: 12, height: 32, lineHeight: '32px' }}>
         {loadingMore && <Spin />}

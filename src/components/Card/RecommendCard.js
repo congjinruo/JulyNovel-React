@@ -1,15 +1,11 @@
 import React, { PureComponent } from 'react';
 import {List, Card, Icon} from 'antd';  // 加载 JS
-import PropTypes from 'prop-types';
 import './RecommendCard.css'
 
 const { Meta } = Card;
 
 
 export default class CoverCard extends PureComponent{
-    constructor(props){
-        super(props);
-    }
 
     static defaultProps = {
       grid: { gutter: 24, xs: 2, sm: 2, md: 4, lg: 4, xl: 4, xxl: 4}

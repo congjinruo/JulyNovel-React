@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Card, Col, Icon } from 'antd';
+import { Card, Col, Icon, Modal } from 'antd';
 import PropTypes from 'prop-types';
 import './GridCard.css';
 
@@ -69,7 +69,19 @@ export default class GridCard extends PureComponent{
         }).then((json) => {
             this.setState({isLoading: false, value: json.data.bookTypeList});
         }).catch(function(ex) {
-                console.log('request failed', ex);  //异常处理
+            console.log('request failed', ex);  //异常处理
+            Modal.info({
+                title: '您的网络似乎有问题',
+                content: (
+                  <div>
+                    <p style={{marginTop: '20px'}}>抱歉</p>
+                    <p>网络通信有点捉襟见肘，立即刷新试试！</p>
+                  </div>
+                ),
+                onOk() {
+                    window.location.href = '/';
+                },
+              });
         });
     }
   

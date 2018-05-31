@@ -8,7 +8,7 @@ import zh_CN from 'antd/lib/locale-provider/zh_CN';
 import 'moment/locale/zh-cn';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
-
+import 'babel-polyfill';
 ReactDOM.render(
 <LocaleProvider locale={zh_CN}>
     <Router>

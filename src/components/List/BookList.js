@@ -37,9 +37,6 @@ query BookListQuery($bookTypeId: ID, $first: Int = 20, $last: Int = 20){
 `
 
 export default class BookList extends PureComponent{
-  constructor(props){
-    super(props)
-  }
   state = {
     pageIndex: 1,
     totalCount: this.props.pageSize,
@@ -51,7 +48,7 @@ export default class BookList extends PureComponent{
     this.setState({pageIndex: page});
   }
   render(){
-    const flag = Math.ceil(this.state.totalCount/this.props.pageSize) == this.state.pageIndex && this.props.pageSize*this.state.pageIndex != this.props.totalCount;
+    const flag = Math.ceil(this.state.totalCount/this.props.pageSize) === this.state.pageIndex && this.props.pageSize*this.state.pageIndex !== this.props.totalCount;
     return(
       <QueryRenderer
       environment={env}

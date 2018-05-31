@@ -13,7 +13,7 @@ export default class Search extends Component{
                 <div className="box-input">
                     <SearchInput className={"search-input"} defaultValue={searchText} placeholder={"凡人修仙之仙界篇"} enterButton="搜索" size="large"
                     onSearch={value => {
-                        if(value == undefined ||  value == null || value.replace(/(^\s*)|(\s*$)/g, "") == ""){
+                        if(value === undefined ||  value === null || value.replace(/(^\s*)|(\s*$)/g, "") === ""){
                             this.props.history.push(`/Search/凡人修仙之仙界篇`);
                             return;
                         }

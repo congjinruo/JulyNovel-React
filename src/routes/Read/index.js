@@ -1,10 +1,8 @@
 import React, {PureComponent} from 'react'
-import { Row, Col, Card, Button, Tag, Tabs, Breadcrumb, List, Spin, Icon, Divider, notification } from 'antd'
+import { Button, Breadcrumb, Spin, Icon, Divider, notification } from 'antd'
 import {graphql, QueryRenderer} from 'react-relay';
 import environment from '../../services/environment';
 import {
-    BrowserRouter as Router,
-    Route,
     Link
   } from 'react-router-dom'
 
@@ -53,18 +51,14 @@ const login = () =>{
 
 
 
-class VipHandle extends PureComponent{
-    constructor(props){
-        super(props);
-    }
-    
+class VipHandle extends PureComponent{ 
     jumpToQidian(xbookId, e){    //事件对象e要放在最后
         window.open(`https://book.qidian.com/info/${xbookId}`);
     }
 
 
     render(){
-        if(this.props.free==1){
+        if(this.props.free===1){
             return null
         }
         return (
@@ -102,10 +96,7 @@ const  Read = ({match}) => {
 }
 
 class ReadComponent extends PureComponent{
-    constructor(props){
-        super(props)
-    }
-
+    
     convertTime = (time) =>{
         let t = '';  
         t = time.replace(/T/g,' ').substring(0, time.lastIndexOf(':'));
@@ -131,7 +122,7 @@ class ReadComponent extends PureComponent{
                         <span><Icon type="line-chart" />&nbsp;{this.props.chapter.wordNumbers}</span>
                         <span><Icon type="clock-circle-o" />&nbsp;{this.convertTime(this.props.chapter.updatetime)}</span>
                     </div>
-                    <div className="read-text" dangerouslySetInnerHTML={{__html: this.props.chapter.content.text}}></div>
+                    <div className="read-text" dangerouslySetInnerHTML={{__html: this.props.chapter.content != null ? this.props.chapter.content.text : "本章似乎丢失了！" }}></div>
                     {<VipHandle free={this.props.chapter.free}  xbookId={this.props.chapter.book.xbookId}/>}
                 </div>
                 <div className="read-footer">

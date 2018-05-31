@@ -43,14 +43,20 @@ export default class Selection extends PureComponent{
               }
               let  openKey = "1";
               const rootSubmenuKeys = [];
-              props.bookTypeList.forEach(bookType => {
-                bookType.children.forEach(item =>{
-                      if(item.typeId==this.props.match.params.typeId){
-                          openKey = bookType.typeId;
-                      }
+              if(props.bookTypeList.length !== undefined){
+                props.bookTypeList.forEach(bookType => {
+                    if(bookType.children.length === undefined){
+                        return;
+                    }
+                    bookType.children.forEach(item =>{
+                          if(item.typeId===this.props.match.params.typeId){
+                              openKey = bookType.typeId;
+                          }
+                    });
+                    rootSubmenuKeys.push(bookType.typeId)
                 });
-                rootSubmenuKeys.push(bookType.typeId)
-            });
+              }
+
 
               const openKeys = [];
               openKeys.push(openKey);
@@ -65,10 +71,6 @@ export default class Selection extends PureComponent{
 }
 
 class SelectionComponent extends PureComponent{
-    constructor(props){
-        super(props)
-
-    }
     state = {
         typeId: this.props.selectedKeys[0],
         openKeys: this.props.openKeys,

@@ -111,6 +111,7 @@ const Info = ({ match }) =>{
           if (!props) {
             return (<Spin className="info-spin"  spinning={true} size="large"/>)
           }
+
           return (<InfoComponent  book={props.book} rank={props.rankType} loading={false}/>)
         }}
         />
@@ -188,7 +189,7 @@ class InfoComponent extends PureComponent{
                                 title={<div className={"info-book-title"}>{this.props.book.bookName}<span className="info-book-author">&emsp;&emsp;{this.props.book.author}&nbsp;&nbsp;著</span></div>}
                                 description={
                                     <div>
-                                        <div className={"info-book-tag"}><Tag color="blue">免费</Tag><Tag color="blue">{this.props.book.status==1 ? "完结" : "连载"}</Tag><Tag color="blue">{this.props.book.bookType.typeName}</Tag></div>
+                                        <div className={"info-book-tag"}><Tag color="blue">免费</Tag><Tag color="blue">{this.props.book.status===1 ? "完结" : "连载"}</Tag><Tag color="blue">{this.props.book.bookType.typeName}</Tag></div>
                                         <div className={"info-type-summary"}>{this.props.book.bookType.summary}</div>
                                         <div className={"info-book-description"}><em>{this.props.book.wordNumbers/10000}</em>&nbsp;&nbsp;万字<span className="split">|</span><em>{this.props.book.clickTimes}</em>&nbsp;&nbsp;点击</div>
                                         <div className={"info-book-buttons"}>
@@ -216,13 +217,13 @@ class InfoComponent extends PureComponent{
 
                                             <RecentChapters  chapters={this.props.book.chapterList}/>
 
-                                            <div  className={'info-ad'} onClick={this.handleAd}><img src="https://qidian.qpic.cn/qidian_common/349573/949cf57a41427571f3fa151fbdeef12a/0" /></div>
+                                            <div  className={'info-ad'} onClick={this.handleAd}><img src="https://qidian.qpic.cn/qidian_common/349573/949cf57a41427571f3fa151fbdeef12a/0"  alt="广告"/></div>
 
                                             <RecommendCard   loading={this.props.loading} dataSource={this.props.book.bookType.recommends}  grid={ { gutter: 24, xs: 3, sm: 3, md: 6, lg: 6, xl: 6, xxl: 6}}/> 
 
                                         </Col>
                                         <Col  xs={24} sm={24} md={6} lg={6} xl={6}>
-                                            <div className={'info-ad'} onClick={this.handleAd}><img  src="https://qidian.qpic.cn/qidian_common/349573/0757b9260e7c015ad6cfae322f08a385/0"/></div>
+                                            <div className={'info-ad'} onClick={this.handleAd}><img  src="https://qidian.qpic.cn/qidian_common/349573/0757b9260e7c015ad6cfae322f08a385/0" alt="广告"/></div>
                                             <List
                                             className={'info-hot'}
                                             header={<h3><strong>{this.props.rank.typeName}</strong></h3>}

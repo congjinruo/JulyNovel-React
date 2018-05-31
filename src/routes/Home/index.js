@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Card, Col, Row, Layout , Tabs  } from 'antd';
+import { Card, Col, Row   } from 'antd';
 import {graphql, QueryRenderer} from 'react-relay';
 import environment from '../../services/environment';
 import Banner from '../../components/Banner';
@@ -91,10 +91,6 @@ const Home = () =>{
 }
 
 class HomeComponent extends PureComponent{
-  constructor(props){
-    super(props)
-  }
-
   render(){
       return (
           <div className="App-content">
