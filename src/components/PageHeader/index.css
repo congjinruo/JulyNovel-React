@@ -80,9 +80,7 @@
     .header-search{
         display: none;
     }
-    .header-menu{
-        display: none;
-    }
+
   }
 
   @media (max-width: 1365px){
@@ -91,4 +89,19 @@
         padding: 0px;
     }
 
+  }
+
+  .login-btn{
+      color: rgba(0, 0, 0, 0.65);
+  }
+
+  .login-btn:hover{
+    color: #1DA57A;
+  }
+
+  .header-right{
+      float: right;
+      position: absolute;
+      right: 12px;
+      top: 0;
   }

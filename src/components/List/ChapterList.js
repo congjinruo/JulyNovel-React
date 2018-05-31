@@ -9,11 +9,10 @@ export default class ChapterList extends PureComponent{
             <List
             className="chapter-list"
             loading={this.props.loading}
-            
             grid={{ gutter: 24, xs: 1, sm: 1, md: 3, lg: 3, xl: 3, xxl: 3 }}
             dataSource={this.props.dataSource}
             renderItem={item => (
-                <List.Item style={{padding: '0px', margin: '0px'}}>{<a href={`/Read/${item.chapterId}`}><span>{item.chapterName}</span>{item.free===0 ? <Icon type="lock" /> : null}</a>}</List.Item>
+                <List.Item>{<a href={`/Read/${item.chapterId}`}><span>{item.chapterName}</span>{item.free===0 ? <Icon type="lock" /> : null}</a>}</List.Item>
             )}
             />
         )

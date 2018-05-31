@@ -108,7 +108,7 @@ class HomeComponent extends PureComponent{
                   <Col xs={24} sm={24} md={18} lg={18} xl={18}>
                     <Banner loading={this.props.loading} rankTypeData={this.props.data[0]}/>
                   </Col>
-                  <Col xs={24} sm={24} md={6} lg={6} xl={6}>
+                  <Col xs={24} sm={24} md={6} lg={6} xl={6} style={{paddingRight: "0"}}>
                     <Card title="大家都在搜" className="hot-search">
                       <a href="/Info/283">飞剑问道</a>
                       <a href="/Info/284">凡人修仙传之仙界篇</a>

@@ -186,7 +186,7 @@ class InfoComponent extends PureComponent{
                             <Card className={"info-book"}
                             cover={<img alt={this.props.book.bookName} src={this.props.book.cover} />}>
                                 <Meta 
-                                title={<div className={"info-book-title"}>{this.props.book.bookName}<span className="info-book-author">&emsp;&emsp;{this.props.book.author}&nbsp;&nbsp;著</span></div>}
+                                title={<div><div className={"info-book-title"}>{this.props.book.bookName}</div><div className="info-book-author">{this.props.book.author}&nbsp;&nbsp;著</div></div>}
                                 description={
                                     <div>
                                         <div className={"info-book-tag"}><Tag color="blue">免费</Tag><Tag color="blue">{this.props.book.status===1 ? "完结" : "连载"}</Tag><Tag color="blue">{this.props.book.bookType.typeName}</Tag></div>
@@ -209,7 +209,7 @@ class InfoComponent extends PureComponent{
                     </Row>
                     <Row  gutter={24}>
                         <Col   xs={24} sm={24} md={24} lg={24} xl={24}>
-                            <Tabs defaultActiveKey="chapter_1" style={{padding: '12px 24px'}}>
+                            <Tabs defaultActiveKey="chapter_1"  animated={this.props.book.chapterList.length <= 500 ? true : false}  style={{padding: '12px 24px'}}>
                                 <TabPane  tab={<span style={{fontSize: '20px'}}>作品信息</span>} key="chapter_1">
                                     <Row gutter={24}>
                                         <Col   xs={24} sm={24} md={18} lg={18} xl={18}>

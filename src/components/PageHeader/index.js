@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../../assets/logo.png';
 
-import { Layout, Input, Menu } from 'antd';
+import { Layout, Input, Menu, Button, Divider  } from 'antd';
 import './index.css';
 import {
     Link
@@ -52,18 +52,23 @@ export default class  PageHeader extends Component{
                     <Menu.Item key="1"><Link to="/">首页</Link></Menu.Item>
                     <Menu.Item key="2"><Link to="/Selection/4">分类</Link></Menu.Item> 
                     </Menu>
-                    <Search
-                    className={"header-search"}
-                    placeholder="凡人修仙之仙界篇"
-                    enterButton={true}
-                    onSearch={value => {
-                        if(value === undefined ||  value === null || value.replace(/(^\s*)|(\s*$)/g, "") === ""){
-                            this.props.history.push(`/Search/凡人修仙之仙界篇`);
-                            return;
-                        }
-                        this.props.history.push(`/Search/${value}`); 
-                    }}
-                    />
+                    <div className={"header-right"}>
+                        <Search
+                        className={"header-search"}
+                        placeholder="凡人修仙之仙界篇"
+                        enterButton={true}
+                        onSearch={value => {
+                            if(value === undefined ||  value === null || value.replace(/(^\s*)|(\s*$)/g, "") === ""){
+                                this.props.history.push(`/Search/凡人修仙之仙界篇`);
+                                return;
+                            }
+                            this.props.history.push(`/Search/${value}`); 
+                        }}
+                        />
+                        <a className={"login-btn"}>登录</a>
+                        <Divider type="vertical" style={{margin: "auto 8px"}}/>
+                        <a className={"login-btn"} style={{marginRight: "12px"}}>注册</a>
+                    </div>
                 </div>
           </Header>            
         )

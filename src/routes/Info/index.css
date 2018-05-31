@@ -59,6 +59,7 @@
 
 .info-book-title{
     overflow: hidden;
+    font-weight: bold;
     text-overflow: ellipsis;
 }
 
@@ -68,12 +69,11 @@
 
 .info-book .ant-card-meta-title{
     font-size: 24px;
-    font-weight: bold;
 }
 
 .info-type-summary{
     font-size: 16px;
-    padding-bottom: 12px;
+    padding-bottom: 6px;
     color: black;
 }
 
@@ -100,7 +100,7 @@
   }
 
 .info-book-tag{
-    padding-bottom: 12px;
+    padding-bottom: 6px;
     font-size: 16px;
 }
 
@@ -120,10 +120,6 @@
 .info-book-buttons{
     top: 192px;
     position: absolute;
-}
-
-.info-book .ant-card-body{
-
 }
 
 .info-book img{
@@ -189,13 +185,46 @@
 }
 
 @media (max-width: 767px){
+    .info-content{
+        background: #ffffffb3
+    }
+    .ant-tabs{
+        background: white;
+    }
+    .info-breadcrumb{
+        margin-bottom: 56px;
+    }
     .info-book{
         padding: 0px;
+        background: #ffffffb3
+    }
+    .info-book-title{
+        font-size: 18px;
     }
 
+    .info-book-author{
+        display: block;
+        margin-top: 6px;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .info-book-tag .ant-tag {
+        line-height: 18px;
+        height: 22px;
+        font-size: 12px;
+    }
+
+    .info-book-description{
+        font-size: 12px;
+    }
+
+    .info-book-description em {
+        font-size: 18px;
+    }
 
     .info-book img{
-
+        max-height: 160px;
         width: 120px;
     }
 
