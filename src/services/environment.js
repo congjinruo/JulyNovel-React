@@ -29,7 +29,7 @@ if (
   console.log('fromCache');
   return fromCache;
 }
-  return fetch('https://www.qiyuexiaoshuo.com:8000/graphql', {
+  return fetch('https://api.kuaijiajin.club/graphql', {
     method: 'POST',
     headers: {
       // Add authentication and other headers here

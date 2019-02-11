@@ -52,7 +52,7 @@ export default class GridCard extends PureComponent{
         }
     }
     componentDidMount() {
-        fetch('https://www.qiyuexiaoshuo.com:8000/graphql', {
+        fetch('https://api.kuaijiajin.club/graphql', {
             method: 'POST',
             headers: {
               'Accept': 'application/json',

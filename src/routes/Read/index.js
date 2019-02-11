@@ -58,7 +58,7 @@ class VipHandle extends PureComponent{
 
 
     render(){
-        if(this.props.free===1){
+        if(this.props.free===0){
             return null
         }
         return (

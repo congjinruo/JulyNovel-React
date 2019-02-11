@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import logo from '../../assets/logo.png';
 
-import { Layout, Input, Menu, Button, Divider  } from 'antd';
+import { Layout, Input, Menu, Divider, notification  } from 'antd';
 import './index.css';
 import {
     Link
   } from 'react-router-dom'
 const  Search = Input.Search;
 const {Header} = Layout;
+
+const login = () =>{
+    notification.open({
+        message: '功能暂未开通',
+        description: '少侠别着急，我们正在对用户体系进行维护中，请耐心等待，感谢您对七月小说网的支持。',
+      });
+}
 
 export default class  PageHeader extends Component{
 
@@ -65,9 +72,9 @@ export default class  PageHeader extends Component{
                             this.props.history.push(`/Search/${value}`); 
                         }}
                         />
-                        <a className={"login-btn"}>登录</a>
+                        <a className={"login-btn"}  onClick={login}  >登录</a>
                         <Divider type="vertical" style={{margin: "auto 8px"}}/>
-                        <a className={"login-btn"} style={{marginRight: "12px"}}>注册</a>
+                        <a className={"login-btn"} style={{marginRight: "12px"}} onClick={login}  >注册</a>
                     </div>
                 </div>
           </Header>            
