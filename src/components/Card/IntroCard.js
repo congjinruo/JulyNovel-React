@@ -41,7 +41,7 @@ export default class IntroCard extends PureComponent{
                   bordered={false}
                   className={"intro-card" }
                   cover={
-                    <LazyLoad>
+                    <LazyLoad   offsetVertical={500}>
                         <img alt={item.book.bookName} src={item.book.cover} />
                     </LazyLoad>
                   }>

@@ -44,6 +44,11 @@
   width: 90px;
 }
 
+.intro-card  .ant-card-cover .LazyLoad{
+  height: 120px;
+  width: 90px;
+}
+
 .intro-card:hover{
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);

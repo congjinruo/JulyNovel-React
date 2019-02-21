@@ -36,7 +36,10 @@
     float: left;
     padding: 12px;
   }
-  
+  .book-list  .ant-card-cover .LazyLoad {
+    height: 120px;
+    width: 90px;
+  }
   .book-list  .ant-card-cover img{
     box-shadow: 2px 4px 6px #bbb;
     border: 1px solid #ebebeb; 

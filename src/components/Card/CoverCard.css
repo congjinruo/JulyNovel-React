@@ -19,6 +19,11 @@
     -ms-transition: -ms-transform .3s ease-out;
     transition: transform .3s ease-out;
   }
+
+  .simple-book-list .ant-card-cover .LazyLoad{
+    height: 100%;
+    width: 90px;
+  }
   
   .ant-card-body{
     padding: 12px;

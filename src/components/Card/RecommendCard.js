@@ -25,7 +25,7 @@ export default class CoverCard extends PureComponent{
                         <Card className={'simple-book-list'}
                         hoverable={true}
                         cover={
-                          <LazyLoad>
+                          <LazyLoad  height={120}   offsetVertical={500}>
                             <img alt={item.bookName} style={{height: '120px'}} src={item.cover} />
                           </LazyLoad>
                         }>
