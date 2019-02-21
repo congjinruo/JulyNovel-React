@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {List, Card, Button, Spin} from 'antd';  // 加载 JS
+import LazyLoad from 'react-lazy-load';
 import './SearchList.css'
 
 
@@ -128,7 +129,11 @@ onLoadMore = () => {
         hoverable
         bordered={false}
         className={"book-list" }
-        cover={<img alt={item.node.bookName} src={item.node.cover} />}>
+        cover={
+          <LazyLoad>
+            <img alt={item.node.bookName} src={item.node.cover} />
+          </LazyLoad>
+        }>
           <Meta
             title={item.node.bookName} 
             description={

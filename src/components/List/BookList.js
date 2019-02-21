@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import {List, Card, Pagination, Spin} from 'antd';  // 加载 JS
+import LazyLoad from 'react-lazy-load';
 import {graphql, QueryRenderer} from 'react-relay';
 import environment from '../../services/environment';
 import './BookList.css'
@@ -81,7 +82,11 @@ export default class BookList extends PureComponent{
             hoverable
             bordered={false}
             className={"book-list" }
-            cover={<img alt={item.node.bookName} src={item.node.cover} />}>
+            cover={
+              <LazyLoad>
+                <img alt={item.node.bookName} src={item.node.cover} />
+              </LazyLoad>
+            }>
               <Meta
                 title={item.node.bookName} 
                 description={

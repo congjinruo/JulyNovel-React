@@ -54,7 +54,7 @@ class App extends Component {
       </Content>
       <BackTop />
       <Footer style={{ textAlign: 'center' }}>
-        <p>July Novel ©2018 designed by React</p>
+        <p>July Novel ©2018 designed by Jiajin Kuai</p>
         <p>浙ICP备17039940号-1</p>
       </Footer>
     </Layout>       

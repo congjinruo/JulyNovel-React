@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import LazyLoad from 'react-lazy-load';
 import {List, Card, Icon} from 'antd';  // 加载 JS
 import './CoverCard.css'
 
@@ -36,7 +37,10 @@ export default class CoverCard extends PureComponent{
                     <a href={`/info/${item.book.bookId}`}>
                       <Card className={'simple-book-list'}
                     hoverable={true}
-                    cover={<img alt={item.book.bookName} style={{height: '120px'}} src={item.book.cover} />}>
+                    cover={ 
+                    <LazyLoad>
+                      <img alt={item.book.bookName} style={{height: '120px'}} src={item.book.cover} />
+                    </LazyLoad>}>
                       <Meta
                         title={item.book.bookName} 
                         description={item.book.author} 

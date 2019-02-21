@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import LazyLoad from 'react-lazy-load';
 import {List, Card, Icon} from 'antd';  // 加载 JS
 import './IntroCard.css'
 
@@ -39,7 +40,11 @@ export default class IntroCard extends PureComponent{
                   hoverable
                   bordered={false}
                   className={"intro-card" }
-                  cover={<img alt={item.book.bookName} src={item.book.cover} />}>
+                  cover={
+                    <LazyLoad>
+                        <img alt={item.book.bookName} src={item.book.cover} />
+                    </LazyLoad>
+                  }>
                     <Meta
                       title={item.book.bookName} 
                       description={
