@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.kuaijiajin.club">
-    <img width="80" src="https://www.kuaijiajin.club/favicon.ico">
+    <img width="80" src="https://oss.kuaijiajin.club/favicon.ico">
   </a>
 </p>
 

@@ -130,7 +130,7 @@ onLoadMore = () => {
         bordered={false}
         className={"book-list" }
         cover={
-          <LazyLoad   offsetVertical={500}>
+          <LazyLoad   offsetVertical={100} once>
             <img alt={item.node.bookName} src={item.node.cover} />
           </LazyLoad>
         }>
