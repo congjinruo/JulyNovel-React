@@ -52,7 +52,13 @@ mockData.push(mock(3));
 mockData.push(mock(10));
 
 const HomeQuery = graphql`
-query HomeQuery{
+query HomeQuery($rootId: Int=0, $totalCount: Int=12){
+  hotBookList {
+    bookId
+    bookName
+    clickTimes
+  }
+
   homeRankList{
     typeId
     typeName
@@ -70,6 +76,19 @@ query HomeQuery{
       }
     }
   }
+
+  bookTypeList(parentTypeId: $rootId){
+    typeId
+    typeName
+    children(totalCount: $totalCount){
+      typeId
+      typeName
+      parentTypeId
+      bookCount
+    }
+  }
+
+
 }
 `;
 const Home = () =>{
@@ -77,6 +96,7 @@ const Home = () =>{
     <QueryRenderer
     environment={env}
     query={HomeQuery}
+    variables={{rootId: 0}}
     render={({error, props}) => {
       if (error) {
         console.log(error)
@@ -84,7 +104,7 @@ const Home = () =>{
       if (!props) {
         return (<HomeComponent data={mockData} loading={true}/>)
       }
-      return (<HomeComponent  data={props.homeRankList} loading={false}/>)
+      return (<HomeComponent  data={props.homeRankList}  gridTypeList={props.bookTypeList} hotBookList={props.hotBookList}  loading={false}/>)
     }}
     />
   )
@@ -97,9 +117,9 @@ class HomeComponent extends PureComponent{
           <Row gutter={24} >
               <Col xs={24} sm={24} md={6} lg={5} xl={5}>
                 <Row gutter={24} className="home-slide">
-                  <GridCard />
+                  <GridCard  gridTypeList={this.props.gridTypeList}  />
                   <Col span={24}  className="book-type" >
-                    <RankCard  loading={this.props.loading} rankTypeData={this.props.data[10]} />
+                    <RankCard  loading={this.props.loading} hotBookList={this.props.hotBookList} />
                   </Col>
                 </Row> 
               </Col>

@@ -29,7 +29,7 @@ if (
   console.log('fromCache');
   return fromCache;
 }
-  return fetch('https://api.kuaijiajin.club/graphql', {
+  return fetch('https://api.kuaijiajin.club:4433/graphql', {
     method: 'POST',
     headers: {
       // Add authentication and other headers here

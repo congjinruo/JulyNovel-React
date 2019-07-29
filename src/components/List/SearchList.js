@@ -69,7 +69,7 @@ componentDidMount() {
   });
 }
 getData = (callback) => {
-  fetch('https://api.kuaijiajin.club/graphql', {
+  fetch('https://api.kuaijiajin.club:4433/graphql', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

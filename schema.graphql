@@ -155,4 +155,5 @@ type Query {
   rank(rankId: ID): Rank
   rankType(rankTypeId: ID): RankType
   homeRankList: [RankType]
+  hotBookList: [Book]
 }

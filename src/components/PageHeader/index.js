@@ -1,30 +1,73 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import logo from '../../assets/logo.png';
+import SignIn from '../SignIn'
+import '../../utils/queryString'
 
-import { Layout, Input, Menu, Divider, notification  } from 'antd';
+import { Layout, Input, Menu, Divider, Modal, Dropdown, Icon, Button, Avatar  } from 'antd';
 import './index.css';
 import {
     Link
   } from 'react-router-dom'
+import queryString from '../../utils/queryString';
 const  Search = Input.Search;
 const {Header} = Layout;
 
 const login = () =>{
-    notification.open({
-        message: '功能暂未开通',
-        description: '少侠别着急，我们正在对用户体系进行维护中，请耐心等待，感谢您对七月小说网的支持。',
-      });
+    SignIn.show({
+        title: ''
+    })
 }
+
+const menu = (
+    <Menu>
+      <Menu.Item key="1"  style={{padding: '8px 16px'}}><Icon type="layout"  style={{marginRight: '8px'}}/>我的书架</Menu.Item>
+      <Menu.Item key="2" style={{padding: '8px 16px'}}><Icon type="profile" style={{marginRight: '8px'}}/>个性推荐</Menu.Item>
+      <Menu.Item key="3"  style={{padding: '8px 16px'}}><Icon type="user" style={{marginRight: '8px'}}/>个人中心</Menu.Item>
+      <Menu.Divider />
+    <Menu.Item key="4"  style={{padding: '8px 16px'}}><Icon type="logout" style={{marginRight: '8px'}}/>退出登陆</Menu.Item>
+    </Menu>
+  );
+  
 
 export default class  PageHeader extends Component{
 
     state={
         defaultSelectedKeys: ['1'],
+        hasSignIn: false,
+        user: {}
     }
+
+
+    setUserInfo = (userInfo) =>{
+        this.setState({
+            hasSignIn: true,
+            user: userInfo
+        })
+    }
+
+    signInWithGitHub = (code) => {
+        fetch('http://localhost:5000/login/github?code=' + code)
+        .then(response => response.json())
+        .then(data => {  
+          this.setUserInfo(data)        
+        });
+    }
+
     componentWillReceiveProps = (nextProps) =>{
 
     }
     componentWillMount(){
+
+        console.log(this.props.location.search)
+
+        let code = queryString(this.props.location.search, 'code')
+        console.log(code)
+        if(typeof code === 'string'){
+            this.signInWithGitHub(code)
+        }
+
+
         if(this.props.location === undefined){
             this.setState({defaultSelectedKeys: ['4']});
             return;
@@ -72,9 +115,18 @@ export default class  PageHeader extends Component{
                             this.props.history.push(`/Search/${value}`); 
                         }}
                         />
-                        <a className={"login-btn"}  onClick={login}  >登录</a>
-                        <Divider type="vertical" style={{margin: "auto 8px"}}/>
-                        <a className={"login-btn"} style={{marginRight: "12px"}} onClick={login}  >注册</a>
+
+                        {
+                            this.state.hasSignIn ? 
+                            <Dropdown overlay={menu}>
+                            <Button style={{ height: '52px', border: 'none' }}>
+                                <Avatar src={this.state.user.avatar_url} />&nbsp;&nbsp;{this.state.user.name}
+                            </Button>
+                            </Dropdown>
+                            :
+                            <a className={"login-btn"}  onClick={login}  >登录</a>
+                        }
+    
                     </div>
                 </div>
           </Header>            
