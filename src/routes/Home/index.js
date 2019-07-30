@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Card, Col, Row   } from 'antd';
-import {graphql, QueryRenderer} from 'react-relay';
+import {QueryRenderer} from 'react-relay';
 import environment from '../../services/environment';
 import Banner from '../../components/Banner';
 import GridCard from '../../components/Card/GridCard';
@@ -12,6 +12,8 @@ import bannerDefault from '../../assets/banner_default.png'
 import './index.css';
 
 const env = environment;
+
+const graphql = require('babel-plugin-relay/macro');
 
 const mock = (count) =>{
   const datas = [];
@@ -87,10 +89,8 @@ query HomeQuery($rootId: Int=0, $totalCount: Int=12){
       bookCount
     }
   }
-
-
 }
-`;
+`
 const Home = () =>{
   return (
     <QueryRenderer

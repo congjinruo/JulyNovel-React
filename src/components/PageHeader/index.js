@@ -5,11 +5,14 @@ import SignIn from '../SignIn'
 import '../../utils/queryString'
 
 import { Layout, Input, Menu, Divider, Modal, Dropdown, Icon, Button, Avatar  } from 'antd';
-import './index.css';
+
 import {
     Link
   } from 'react-router-dom'
 import queryString from '../../utils/queryString';
+
+import './index.css';
+
 const  Search = Input.Search;
 const {Header} = Layout;
 
@@ -47,7 +50,7 @@ export default class  PageHeader extends Component{
     }
 
     signInWithGitHub = (code) => {
-        fetch('http://localhost:5000/login/github?code=' + code)
+        fetch('https://api.kuaijiajin.club:4433/login/github?code=' + code)
         .then(response => response.json())
         .then(data => {  
           this.setUserInfo(data)        
@@ -106,7 +109,6 @@ export default class  PageHeader extends Component{
                         <Search
                         className={"header-search"}
                         placeholder="凡人修仙之仙界篇"
-                        enterButton={true}
                         onSearch={value => {
                             if(value === undefined ||  value === null || value.replace(/(^\s*)|(\s*$)/g, "") === ""){
                                 this.props.history.push(`/Search/凡人修仙之仙界篇`);

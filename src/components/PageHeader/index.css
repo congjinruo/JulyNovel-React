@@ -1,7 +1,8 @@
-.page-header{
+.ant-layout .page-header{
     background-color: white;
     z-index: 10;
     border-bottom: 1px solid #e8e8e8;
+    background: #ffffff;
 }
 
 .header-box{

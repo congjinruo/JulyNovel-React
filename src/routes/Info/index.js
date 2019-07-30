@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import {Row, Col, Card, Button, Tag, Tabs, Breadcrumb, List, Spin, Modal, Popover} from 'antd'
-import {graphql, QueryRenderer} from 'react-relay';
+import {QueryRenderer} from 'react-relay';
 import environment from '../../services/environment';
 import ChapterList from '../../components/List/ChapterList'
 import RecommendCard from '../../components/Card/RecommendCard'
@@ -11,6 +11,8 @@ import {
 import './index.css';
 const TabPane = Tabs.TabPane;
 const {Meta} = Card;
+
+const graphql = require('babel-plugin-relay/macro');
 
 const env = environment;
 

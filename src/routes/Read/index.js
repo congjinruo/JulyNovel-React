@@ -1,12 +1,13 @@
 import React, {PureComponent} from 'react'
 import { Button, Breadcrumb, Spin, Icon, Divider, notification } from 'antd'
-import {graphql, QueryRenderer} from 'react-relay';
+import {QueryRenderer} from 'react-relay';
 import environment from '../../services/environment';
 import {
     Link
   } from 'react-router-dom'
 
   import './index.css';
+const graphql = require('babel-plugin-relay/macro');
 const env = environment;
 const ReadQuery = graphql`
 query ReadQuery($chapterId: ID){

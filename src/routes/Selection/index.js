@@ -1,10 +1,13 @@
 import React, {PureComponent} from 'react'
 import { Menu, Layout, Icon} from 'antd'
-import {graphql, QueryRenderer} from 'react-relay';
+import {QueryRenderer} from 'react-relay';
 import environment from '../../services/environment';
 import BookList from '../../components/List/BookList';
 
   import './index.css';
+
+  const graphql = require('babel-plugin-relay/macro');
+  
   const env = environment;
   const { SubMenu } = Menu;
   const { Content, Sider } = Layout;

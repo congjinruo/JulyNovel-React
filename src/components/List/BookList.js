@@ -1,41 +1,15 @@
 import React, { PureComponent } from 'react';
 import {List, Card, Pagination, Spin} from 'antd';  // 加载 JS
 import LazyLoad from 'react-lazy-load';
-import {graphql, QueryRenderer} from 'react-relay';
+import {QueryRenderer} from 'react-relay';
 import environment from '../../services/environment';
 import './BookList.css'
+
+const graphql = require('babel-plugin-relay/macro');
 
 const env = environment;
 
 const { Meta } = Card;
-
-const BookListQuery = graphql`
-query BookListQuery($bookTypeId: ID, $first: Int = 20, $last: Int = 20){
-  bookType(typeId: $bookTypeId) {
-    typeId
-    totalBookCount
-  }
-  bookList(bookTypeId: $bookTypeId, first: $first, last: $last) {
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
-      edges {
-        node {
-          bookId
-          bookName
-          summary
-          clickTimes
-          wordNumbers
-          cover
-          banner
-          author
-          xbookId
-        }
-      }
-    }
-  }
-`
 
 export default class BookList extends PureComponent{
   state = {
@@ -53,7 +27,33 @@ export default class BookList extends PureComponent{
     return(
       <QueryRenderer
       environment={env}
-      query={BookListQuery}
+      query={graphql`
+      query BookListQuery($bookTypeId: ID, $first: Int = 20, $last: Int = 20){
+        bookType(typeId: $bookTypeId) {
+          typeId
+          totalBookCount
+        }
+        bookList(bookTypeId: $bookTypeId, first: $first, last: $last) {
+            pageInfo {
+              hasNextPage
+              endCursor
+            }
+            edges {
+              node {
+                bookId
+                bookName
+                summary
+                clickTimes
+                wordNumbers
+                cover
+                banner
+                author
+                xbookId
+              }
+            }
+          }
+        }
+      `}
       variables={{
         bookTypeId: this.props.typeId,
         first: this.props.pageSize*this.state.pageIndex,
