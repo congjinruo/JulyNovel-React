@@ -27,7 +27,7 @@ yarn start
 如果您没有后端，目前已开放我的后端，没有跨域限制。可以直接用于测试。  
 [这是我搭建的Flask Graphql后端](https://api.kuaijiajin.club:4433/graphql) 
 
-如果您想搭建自己的后端，这里提供了我自己用爬虫爬的数据库表结构
+如果您想搭建自己的后端，这里提供了我自己用爬虫爬的数据库表结构和数据  
 [这是novel.sql文件](https://cloud.kuaijiajin.club/s/2r9ffbewH8bZEaz) 
 ### 服务器部署
 执行
