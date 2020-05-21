@@ -132,7 +132,7 @@ class HomeComponent extends PureComponent{
                     <Card title="大家都在搜" className="hot-search">
                       <a href="/Info/283">飞剑问道</a>
                       <a href="/Info/284">凡人修仙传之仙界篇</a>
-                      <a href="/Info/290">太初</a>
+                      <a href="/Info/33">三国刀客</a>
                       <a href="/Info/281">斗战狂潮</a>
                       <a href="/Info/255">圣墟</a>
                     </Card>

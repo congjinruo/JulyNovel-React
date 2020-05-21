@@ -13,6 +13,28 @@ July Novel是一个React Web前端项目，基于Ant-Design和React-Relay开发
 体验地址：https://www.kuaijiajin.club
 </div>  
 
+## 运行说明
+### 本地测试
+```shell
+yarn install
+yarn run relay
+yarn start
+```
+### 注意事项 
+本项目的后端前端需要后端配合，后端是由Python Flask开发  
+[这是July Novel后端项目](https://github.com/congjinruo/JulyNovel)  
+
+如果您没有后端，目前已开放我的后端，没有跨域限制。可以直接用于测试。  
+
+如果您想搭建自己的后端，这里提供了我自己用爬虫爬的数据库表结构
+[这是novel.sql文件](https://cloud.kuaijiajin.club/s/2r9ffbewH8bZEaz) 
+### 服务器部署
+执行
+```shell
+yarn build
+```
+将build文件夹内的静态资源部署到服务器上即可
+
 ## 性能优化
 
 ### 分享一下我做的网站性能优化指南

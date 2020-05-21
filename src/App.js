@@ -55,7 +55,7 @@ class App extends Component {
       <BackTop />
       <Footer style={{ textAlign: 'center' }}>
         <p>July Novel ©2018 designed by Jiajin Kuai</p>
-        <p>浙ICP备17039940号-1</p>
+        <p><a href="http://www.beian.miit.gov.cn" target="_blank">浙ICP备17039940号</a></p>
       </Footer>
     </Layout>       
     );
